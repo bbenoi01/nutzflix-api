@@ -3,6 +3,20 @@ const Video = require('../models/Video');
 const requireAuth = require('../middleware/requireAuth');
 const router = express.Router();
 
+// router.put('/all', async (req, res) => {
+// 	try {
+// 		const updated = await Video.updateMany(
+// 			{ media: 'A_Quite_Place.mp4' },
+// 			{
+// 				media: 'A_Quiet_Place.mp4',
+// 			}
+// 		);
+// 		res.status(200).json(updated);
+// 	} catch (err) {
+// 		console.log(err);
+// 	}
+// });
+
 // Add New Video
 router.post('/', requireAuth, async (req, res) => {
 	let errors = {};

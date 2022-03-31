@@ -27,11 +27,14 @@ const videoSchema = new mongoose.Schema(
 			type: String,
 			required: [true, 'Video is required'],
 		},
+		runTime: {
+			type: String,
+		},
 		year: {
 			type: String,
 		},
-		recommendedAge: {
-			type: Number,
+		rating: {
+			type: String,
 		},
 		genre: {
 			type: String,
