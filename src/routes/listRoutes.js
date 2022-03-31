@@ -49,7 +49,7 @@ router.get('/', requireAuth, async (req, res) => {
 		res.status(200).json(list);
 	} catch (err) {
 		errors.list = 'Error getting lists!';
-		res.status(500).json(lists);
+		res.status(500).json(errors);
 	}
 });
 
