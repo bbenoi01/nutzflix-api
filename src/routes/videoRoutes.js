@@ -72,9 +72,11 @@ router.delete('/:id', requireAuth, async (req, res) => {
 	if (req?.user?.isAdmin) {
 		try {
 			const deletedVideo = await Video.findByIdAndDelete(id);
-			res
-				.status(200)
-				.json(`${deletedVideo.title} has been successfully deleted!`);
+			const updatedVideoList = await Video.find({});
+			res.status(200).json({
+				updatedVideoList,
+				message: `${deletedVideo.title} has been successfully deleted!`,
+			});
 		} catch (err) {
 			errors.video = 'Error updating video!';
 			res.status(500).json(errors);
