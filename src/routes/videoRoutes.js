@@ -26,7 +26,8 @@ router.post('/', requireAuth, async (req, res) => {
 
 		try {
 			const video = await newVideo.save();
-			res.status(201).json(video);
+			const updatedVideoList = await Video.find({});
+			res.status(201).json({ video, updatedVideoList });
 		} catch (err) {
 			errors.video = 'Error adding video!';
 			res.status(500).json(errors);

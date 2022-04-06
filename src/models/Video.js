@@ -43,6 +43,9 @@ const videoSchema = new mongoose.Schema(
 			type: Boolean,
 			default: false,
 		},
+		seriesType: {
+			type: String,
+		},
 		seriesTitle: {
 			type: String,
 		},
