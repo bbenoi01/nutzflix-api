@@ -14,12 +14,6 @@ const videoSchema = new mongoose.Schema(
 		img: {
 			type: String,
 		},
-		imgTitle: {
-			type: String,
-		},
-		imgSm: {
-			type: String,
-		},
 		trailer: {
 			type: String,
 		},
