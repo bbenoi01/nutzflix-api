@@ -54,7 +54,8 @@ router.put('/:id', requireAuth, async (req, res) => {
 					new: true,
 				}
 			);
-			res.status(200).json(updatedVideo);
+			const updatedVideos = await Video.find({}).sort('-createdAt');
+			res.status(200).json({ updatedVideo, updatedVideos });
 		} catch (err) {
 			errors.video = 'Error updating video!';
 			res.status(500).json(errors);
@@ -133,7 +134,7 @@ router.get('/', requireAuth, async (req, res) => {
 
 	if (req?.user?.isAdmin) {
 		try {
-			const videos = await Video.find({});
+			const videos = await Video.find({}).sort('-createdAt');
 			res.status(200).json(videos);
 		} catch (err) {
 			errors.video = 'Error getting videos!';

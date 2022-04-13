@@ -37,9 +37,10 @@ router.put('/:id', requireAuth, async (req, res) => {
 				}
 			);
 
-			const { password, ...updatedUser } = user?._doc;
+			const { password, ...updatedSub } = user?._doc;
+			const updatedSubList = await User.find({}).sort('-createdAt');
 
-			res.json(updatedUser);
+			res.json({ updatedSub, updatedSubList });
 		} catch (err) {
 			errors.update = 'Error updating profile';
 			return res.status(400).json(errors);
